@@ -1,0 +1,119 @@
+/* Body */
+body {
+    padding-top: 120px;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+/* Banner container */
+.banner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;            /* let the image define the height */
+    display: flex;
+    align-items: center;     /* vertically center links */
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+/* Banner image: keep original size, don’t scale */
+.banner-image {
+    display: block;
+    height: auto;            /* original height */
+    width: auto;             /* keep original width */
+    max-width: none;         /* prevent CSS scaling */
+    position: relative;      /* not absolute, stays in flow */
+}
+
+/* Links container */
+.banner-links {
+    display: flex;
+    gap: 30px;
+    margin-left: 20px;       /* spacing from left edge */
+    position: absolute;      /* overlay on top of banner */
+    top: 50%;                /* vertically center */
+    transform: translateY(-50%);
+}
+
+/* Links styling */
+.banner-text {
+    position: absolute;       
+    top: 35px;                /* Moved down (was 10px/15px) */
+    color: white;
+    font-family: 'Josefin Slab', serif;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    z-index: 1001;               
+    font-size: 1rem;
+}
+
+/* Shifted everything right to clear the logo */
+.home-text { 
+    left: 190px; 
+}
+
+.localization-text { 
+    left: 280px; 
+}
+
+.news-text { 
+    left: 450px; 
+}
+
+.tourism-link { 
+    left: 550px; 
+}
+/* News container */
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    align-items: center;
+}
+
+.news-card {
+    display: flex;       
+    flex-direction: row;
+    border: 1px solid gray;
+    border-radius: 8px;
+    width: 90%;           /* take up most of container width */
+    max-width: 600px;     /* optional max width */
+    min-width: 300px;     /* optional min width */
+    overflow: hidden;
+    transition: transform 0.2s;
+    cursor: pointer;
+    background-color: white;
+}
+
+.news-card img {
+    width: 150px;         /* fixed image width */
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.news-content {
+    padding: 8px;
+    flex: 1;             /* text takes remaining width */
+    font-size: 0.9rem;
+    line-height: 1.2;
+    word-wrap: break-word; /* prevent overflowing text */
+}
+
+.news-content h3 {
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+    word-wrap: break-word; /* make long titles wrap */
+}
+
+/* Links */
+.news-content a {
+    color: #0066cc;
+    text-decoration: underline;
+}
