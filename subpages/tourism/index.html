@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>New Yoyle City - Tourism </title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Josefin+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="banner-container">
+        <img src="/assets/banner.png" alt="City banner" class="banner-image">
+        <a href="/index.html" class="banner-text home-text">HOME</a>
+        <a href="/subpages/localization/index.html" class="banner-text localization-text">LOCALIZATION</a>
+        <a href="/subpages/news/index.html" class="banner-text news-text">NEWS</a>
+        <a href="/subpages/tourism/index.html" class="banner-text tourism-link">TOURISM</a>
+    </div>
+    <p>Below is a table of activities and places. These are only recommendations. Please do your own research before visiting them; </p>
+    <table>
+    <tr>
+        <th>Activity</th>
+        <th>Place</th>
+    </tr>
+    <tr>
+        <td>Fishing</td>
+        <td>Fishing Pier</td>
+    </tr>
+    <tr>
+        <td>Swimming</td>
+        <td>Beach</td>
+    </tr>
+    <tr>
+        <td>Eating</td>
+        <td>Pluto's Restaurant</td>
+    </tr>
+    <tr>
+        <td>Shopping</td>
+        <td>Shopping Mall</td>
+    </tr>
+    <tr>
+        <td>Healthcare</td>
+        <td>Hospital</td>
+    </tr>
+    <tr>
+        <td>Reporting Crimes</td>
+        <td>Police Station</td>
+    </tr>
+    <tr>
+        <td>Seeing Waterfalls</td>
+        <td>
+            <a href="https://www.google.com/maps/place/Crazy+Creek+Falls/@44.9473943,-109.7790068,2536m/data=!3m1!1e3!4m6!3m5!1s0x534ef9ee04546b21:0xd01d71f0e6cfe9bf!8m2!3d44.9444602!4d-109.7740137!16s%2Fm%2F0kc5m6w?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                Crazy Creek Falls
+            </a>
+        </td>
+    </tr>
+    <!-- Weather Forecast Section -->
+<div id="weather-container" style="width: 90%; margin: 30px auto; text-align: center; font-family: 'Roboto Condensed', sans-serif;">
+    <h2>Weather in Crazy Creek Falls</h2>
+    <div id="weather-card" style="border: 2px solid #333; border-radius: 12px; padding: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; gap: 20px;">
+        <img id="weather-icon" src="" alt="Weather Icon" style="width: 80px; height: 80px;">
+        <div id="weather-text" style="font-size: 18px;"></div>
+    </div>
+</div>
+
+<script>
+async function fetchWeather() {
+    const latitude = 44.957722; // 44°57'27.8"N
+    const longitude = -109.805556; // 109°48'20.0"W
+    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
+    const data = await response.json();
+    const weather = data.current_weather.weathercode;
+
+    const weatherIcon = document.getElementById("weather-icon");
+    const weatherText = document.getElementById("weather-text");
+
+    let iconURL = "";
+    let message = "";
+
+    // Map Open-Meteo weather codes: https://open-meteo.com/en/docs
+    if ([0, 1].includes(weather)) { // Sunny / Mostly Sunny
+        iconURL = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
+        message = "Today is going to be a fun day! Everybody will be happy, and rain comes soon. It's a great time to play outside today (=";
+    } else if ([2, 3].includes(weather)) { // Cloudy / Partly Cloudy
+        iconURL = "https://cdn-icons-png.flaticon.com/512/414/414825.png";
+        message = "Cloudy day? No problem. Think of it as still sunny, but it's almost raining. Well, it's still a nice day!";
+    } else if ([45, 48, 51, 53, 55, 61, 63, 65, 71, 73, 75, 95, 96, 99].includes(weather)) { // Rain/Thunderstorm/Snow
+        iconURL = "https://cdn-icons-png.flaticon.com/512/414/414974.png";
+        message = "No sun? No problem! All the crops will grow happily! Just be careful on the highway (;";
+    } else {
+        iconURL = "https://cdn-icons-png.flaticon.com/512/252/252035.png"; // fallback generic icon
+        message = "Weather info not available.";
+    }
+
+    weatherIcon.src = iconURL;
+    weatherText.innerText = message;
+}
+
+// Call the function
+fetchWeather();
+</script>
+</table>
+</body>
+</html>
