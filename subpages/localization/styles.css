@@ -1,0 +1,51 @@
+
+.banner-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  z-index: 1000;
+  width: 100%;  
+}
+
+.banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.banner-text {
+  position: absolute;
+  top: 10px;        
+  color: white;
+  font-family: 'Josefin Slab', serif;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.home-text {
+  left: 110px;       
+}
+
+.localization-text {
+  left: 220px;    
+}
+
+.news-text {
+  left: 380px;   
+}
+
+.tourism-link {
+  left: 450px;
+}
+
+
+
+p {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
