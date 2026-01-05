@@ -1,0 +1,85 @@
+/* --- General Page Setup --- */
+body {
+  padding-top: 150px; 
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 20px;
+}
+
+/* --- Banner Structure --- */
+.banner-container {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* --- Navigation Links --- */
+.banner-text {
+  position: absolute;
+  top: 15px; 
+  color: white;
+  font-family: 'Josefin Slab', serif;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  text-decoration: none;
+  font-size: 18px;
+  z-index: 1001;
+}
+
+/* Individual horizontal positions */
+.home-text { 
+  left: 120px; 
+}
+
+.localization-text { 
+  left: 200px; 
+}
+
+.news-text { 
+  left: 380px; 
+}
+
+.tourism-link { 
+  left: 470px; 
+}
+
+/* --- Table Styling --- */
+table {
+    width: 90%; /* fits nicely on the page */
+    margin: 20px auto; /* centers table */
+    border-collapse: collapse; /* no double borders */
+    font-family: 'Roboto Condensed', sans-serif;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2); /* subtle shadow for depth */
+}
+
+th, td {
+    border: 2px solid #333; /* visible "trace" around cells */
+    padding: 10px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2; /* header shading */
+}
+
+a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
