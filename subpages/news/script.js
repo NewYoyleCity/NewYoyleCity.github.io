@@ -14,8 +14,13 @@ fetch('/news/news.json')
       // Replace \n with <br> to force line breaks
       const htmlContent = marked.parse(item.content.replace(/\\n/g, '<br>'));
 
+      // Only include the image if a cover exists
+      const imageHTML = item.cover
+        ? `<img src="/news/${item.folder}/${item.cover}" alt="News cover">`
+        : '';
+
       card.innerHTML = `
-        <img src="/news/${item.folder}/${item.cover}" alt="News cover">
+        ${imageHTML}
         <div class="news-content">
           <h3>${item.title}</h3>
           <p>${new Date(item.date).toLocaleDateString()}</p>
